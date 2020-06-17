@@ -30,9 +30,9 @@ const Graph = ({ type }) => {
   const { loading, error, data } = useQuery(METRIC_QUERY, {
     variables: {
       metricName: type,
-      after: date - 300000,
+      after: date - 1800000,
     },
-    pollInterval: 500,
+    pollInterval: 1300,
   });
 
   if (loading) return <p>Loading</p>;

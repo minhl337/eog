@@ -1,19 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import NowWhat from './components/NowWhat';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 
 import createStore from './store';
 import Main from './components/Main';
-import Menu from './components/Menu';
 
 const client = new ApolloClient({
   uri: 'https://react.eogresources.com/graphql',

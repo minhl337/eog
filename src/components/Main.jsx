@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Graph from './Graph';
 
+import { useSelector } from 'react-redux';
+
 const useStyles = makeStyles({
   root: {
     padding: '2rem',
@@ -17,10 +19,20 @@ const useStyles = makeStyles({
 
 export default function Main() {
   const classes = useStyles();
+  const myMetrics = useSelector(state => state.MyMetrics);
 
   return (
     <Container maxWidth="xl">
-      <Card className={classes.root}>{/* <Graph className={classes.graph} type="waterTemp" /> */}</Card>
+      <Card className={classes.root}>
+        {myMetrics &&
+          myMetrics.map(metric => {
+            return (
+              <div key={metric}>
+                <Graph className={classes.graph} type={metric} />
+              </div>
+            );
+          })}
+      </Card>
     </Container>
   );
 }

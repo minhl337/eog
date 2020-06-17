@@ -3,9 +3,10 @@ const initialState = [];
 export const MyMetrics = (state = initialState, action) => {
   switch (action.type) {
     case 'ADDMETRIC':
-      return (state = state.push(action.payload));
+      return (state = [...state, action.payload]);
     case 'REMOVEMETRIC':
-      return (state = state.filter(metric => metric !== action.payload));
+      const newState = state.filter(metric => metric !== action.payload);
+      return (state = [...newState]);
     default:
       return state;
   }

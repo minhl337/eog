@@ -10,6 +10,7 @@ import Selector from './Selector';
 const useStyles = makeStyles({
   grow: {
     flexGrow: 1,
+    fontSize: '1rem',
   },
 });
 
