@@ -1,5 +1,4 @@
 import React from 'react';
-import createStore from './store';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -9,7 +8,19 @@ import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
 
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+
+import createStore from './store';
+import Main from './components/Main';
+import Menu from './components/Menu';
+
+const client = new ApolloClient({
+  uri: 'https://react.eogresources.com/graphql',
+});
+
 const store = createStore();
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -25,16 +36,17 @@ const theme = createMuiTheme({
 });
 
 const App = () => (
-  <MuiThemeProvider theme={theme}>
-    <CssBaseline />
+  <ApolloProvider client={client}>
     <Provider store={store}>
-      <Wrapper>
-        <Header />
-        <NowWhat />
-        <ToastContainer />
-      </Wrapper>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <Wrapper>
+          <Header />
+          <Main />
+        </Wrapper>
+      </MuiThemeProvider>
     </Provider>
-  </MuiThemeProvider>
+  </ApolloProvider>
 );
 
 export default App;

@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import Weather from '../Features/Weather/Weather';
 
+import Selector from './Selector';
+
 const useStyles = makeStyles({
   grow: {
     flexGrow: 1,
@@ -21,6 +23,7 @@ export default () => {
         <Typography variant="h6" color="inherit" className={classes.grow}>
           {name} EOG React Visualization Assessment
         </Typography>
+        <Selector />
         <Weather />
       </Toolbar>
     </AppBar>
