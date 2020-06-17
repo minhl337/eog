@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 const useStyles = makeStyles({
   root: {
     padding: '2rem',
-    margin: '200px 0',
+    margin: '2rem 0',
   },
   graph: {
     padding: '5rem',
@@ -23,6 +23,8 @@ export default function Main() {
 
   return (
     <Container maxWidth="xl">
+      <h1>Click a metric above to toggle the last 30 minutes of data.</h1>
+      <h4>Data is refreshed every 1.3 seconds</h4>
       <Card className={classes.root}>
         {myMetrics &&
           myMetrics.map(metric => {
