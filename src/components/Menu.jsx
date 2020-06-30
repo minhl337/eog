@@ -9,21 +9,12 @@ const useStyles = makeStyles({
   },
 });
 
-const metrics = [
-  'flareTemp',
-  'injValveOpen',
-  'waterTemp',
-  'casingPressure',
-  'tubingPressure',
-  'oilTemp',
-];
-
 export default function Menu() {
   const classes = useStyles();
 
   return (
     <AppBar className={classes.root}>
-      <Typography variant='h6' color='inherit'>
+      <Typography variant="h6" color="inherit">
         Minh's React Assessment
       </Typography>
     </AppBar>
